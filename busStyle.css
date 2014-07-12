@@ -1,0 +1,12 @@
+h1 {
+  color: #ffcb0b;
+  text-align: center;
+  font-size: 40px;
+}
+
+#header {
+  background-color: #00274c;
+  width: 100%;
+  display: table;
+  margin-bottom: 2%;
+}
