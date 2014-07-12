@@ -1,5 +1,5 @@
     $("#toggle").click(function(){
-      $("#times").toggle();
+      $("#stops").toggle();
     });
 
     $("#refresh").click(function(){
