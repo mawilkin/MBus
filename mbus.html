@@ -2,12 +2,13 @@
 <html>
   <head>
     <title>Magic Bus</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <script src="components/platform/platform.js"></script>
     <link rel="stylesheet" type="text/css" href="busStyle.css">
     
-    <!--<script src="components/polymer/polymer.js"></script>-->
-    <link rel="import" href="components/core-collapse/core-collapse.html">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="import" href="components_full/bower_components/core-collapse/core-collapse.html">
+    <link rel="import" href="components_full/bower_components/paper-shadow/paper-shadow.html">
+
   </head>
 
   <body>
@@ -19,19 +20,24 @@
     <button id="refresh">Refresh</button>
 
     <div id="stops">
-      <h2>Pierpont</h2>
-      <h3>Commuter South</h3>
-      <ul id="CS"></ul>
-      <h3>Northwood</h3>
-      <ul id="NW"></ul>
+      <div class="card">
+        <paper-shadow z="1"></paper-shadow>
+        <h2>Pierpont</h2>
+        <h3>Commuter South</h3>
+        <ul id="CS"></ul>
+        <h3>Northwood</h3>
+        <ul id="NW"></ul>
+      </div>
 
-      <h2>FXB</h2>
-      <h3>Commuter North</h3>
-      <ul id="CN"></ul>
-      <h3>North-East Shuttle</h3>
-      <ul id="NE"></ul>
+      <div class="card">
+        <paper-shadow z="1"></paper-shadow>
+        <h2>FXB</h2>
+        <h3>Commuter North</h3>
+        <ul id="CN"></ul>
+        <h3>North-East Shuttle</h3>
+        <ul id="NE"></ul>
+      </div>
     </div>
-
 
     <!--Scripts-->
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -40,7 +46,7 @@
 
   <section style="background: steelblue;">
 
-    <button onclick="document.querySelector('#collapse').toggle()">toggle collapse</button>
+    <button onclick="document.querySelector('#collapse').toggle()">toggle</button>
 
     <core-collapse id="collapse">
       <div class="content">Forma temperiemque cornua sidera dissociata cornua recessit innabilis ligavit: solidumque coeptis nullus caelum sponte phoebe di regat mentisque tanta austro capacius amphitrite sui quin postquam semina fossae liquidum umor galeae coeptis caligine liberioris quin liquidum matutinis invasit posset: flexi glomeravit radiis certis invasit oppida postquam onerosior inclusum dominari opifex terris pace finxit quam aquae nunc sine altae auroram quam habentem homo totidemque scythiam in pondus ensis tegit caecoque poena lapidosos humanas coeperunt poena aetas totidem nec natura aethera locavit caelumque distinxit animalibus phoebe cingebant moderantum porrexerat terrae possedit sua sole diu summaque obliquis melioris orbem</div>
