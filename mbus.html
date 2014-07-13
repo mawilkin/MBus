@@ -16,56 +16,34 @@
       <h1>Magic Bus</h1>
     </div>
 
-    <button id="toggle">Toggle</button>
     <button id="refresh">Refresh</button>
 
-    <div id="stops">
-      <div class="card">
-        <paper-shadow z="1"></paper-shadow>
-        <h2>Pierpont</h2>
-        <h3>Commuter South</h3>
-        <ul id="CS"></ul>
-        <h3>Northwood</h3>
-        <ul id="NW"></ul>
-      </div>
+    <div class="card">
+      <paper-shadow z="1"></paper-shadow>
+      <button class="stop_btn" onclick="document.querySelector('#pnt').toggle()">Pierpont</button>
+      <core-collapse opened="true" id="pnt">
+        <h3 class="route-name">Commuter South</h3>
+        <ul class="time-list" id="CS"></ul>
+        <h3 class="route-name">Northwood</h3>
+        <ul class="time-list" id="NW"></ul>
+      </core-collapse>
+    </div>  
 
-      <div class="card">
-        <paper-shadow z="1"></paper-shadow>
-        <h2>FXB</h2>
-        <h3>Commuter North</h3>
-        <ul id="CN"></ul>
-        <h3>North-East Shuttle</h3>
-        <ul id="NE"></ul>
-      </div>
 
-      <div class="card">
-        <paper-shadow z="1"></paper-shadow>
-        <button onclick="document.querySelector('#hideit').toggle()">FXB</button>
-        <core-collapse id="hideit">
-          <div class="content">
-            <h3>Commuter North</h3>
-            <ul id="CN"></ul>
-            <h3>North-East Shuttle</h3>
-            <ul id="NE"></ul>
-          </div>
-        </core-collapse>
-      </div>
-    </div>
+    <div class="card">
+      <paper-shadow z="1"></paper-shadow>
+      <button class="stop_btn" onclick="document.querySelector('#hideit').toggle()">FXB</button>
+      <core-collapse id="hideit">
+        <h3 class="route-name">Commuter North</h3>
+        <ul class="time-list" id="CN"></ul>
+        <h3 class="route-name">North-East Shuttle</h3>
+        <ul class="time-list" id="NE"></ul>
+      </core-collapse>
+    </div>  
 
     <!--Scripts-->
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="busData.js"></script>
-    
-
-  <section style="background: steelblue;">
-
-    <button onclick="document.querySelector('#collapse').toggle()">toggle</button>
-
-    <core-collapse id="collapse">
-      <div class="content">Forma temperiemque cornua sidera dissociata cornua recessit innabilis ligavit: solidumque coeptis nullus caelum sponte phoebe di regat mentisque tanta austro capacius amphitrite sui quin postquam semina fossae liquidum umor galeae coeptis caligine liberioris quin liquidum matutinis invasit posset: flexi glomeravit radiis certis invasit oppida postquam onerosior inclusum dominari opifex terris pace finxit quam aquae nunc sine altae auroram quam habentem homo totidemque scythiam in pondus ensis tegit caecoque poena lapidosos humanas coeperunt poena aetas totidem nec natura aethera locavit caelumque distinxit animalibus phoebe cingebant moderantum porrexerat terrae possedit sua sole diu summaque obliquis melioris orbem</div>
-    </core-collapse>
-
-  </section>
 
   </body>
 </html>
