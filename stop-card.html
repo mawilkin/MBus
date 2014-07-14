@@ -51,20 +51,32 @@
       }
     </style>
 
+    <core-ajax url="http://www.corsproxy.com/mbus.doublemap.com/map/v2/eta?stop={{stopID}}" auto handleAs="json" response="{{resp}}"></core-ajax>
 
-    <core-ajax url="http://www.corsproxy.com/mbus.doublemap.com/map/v2/eta?stop={{stopID}}" auto response="{{resp}}"></core-ajax>
     <div class="card">
       <paper-shadow z="1"></paper-shadow>
       <button class="stop_btn" on-click="{{toggle}}">{{name}}</button>
       <core-collapse opened="true" id="{{name}}">
+
+        <!--Need to handle naming from route numbers-->
         <h3 class="route-name">Commuter South</h3>
-        <ul class="time-list" id="CS"></ul>
+        <ul class="time-list" id="CS">
+          <template repeat="{{route in resp.etas[stopID].etas}}">
+            <template bind if="{{route.avg < 60}}">
+              <li>{{route.avg}} minutes</li>
+            </template>
+          </template>
+        </ul>
+
+        <!--repeat above templates for here as well-->
         <h3 class="route-name">Northwood</h3>
         <ul class="time-list" id="NW"></ul>
       </core-collapse>
     </div>  
 
   </template>
+
+
   <script>
     Polymer('stop-card', {
       stopID: "91",
