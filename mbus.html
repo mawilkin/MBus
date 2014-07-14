@@ -3,10 +3,14 @@
   <head>
     <title>MBus</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta charset="UTF-8">
+
     <script src="components_full/bower_components/platform/platform.js"></script>
+
     <link rel="stylesheet" type="text/css" href="busStyle.css">
-    
     <link rel="import" href="stop-card.html">
+    <link rel="import" href="components_full/bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="components_full/bower_components/core-icons/iconsets/icons.html">
 
   </head>
 
@@ -16,11 +20,15 @@
       <h1>MBus</h1>
     </div>
 
-    <button id="refresh">Refresh</button>
+    <paper-fab id="refresh" icon="refresh"></paper-fab>
+
+    <!--<button id="refresh">Refresh</button>-->
 
     <!-- Cards for Stops -->
-    <stop-card id="myCard" name="Pierpont" stopID="98"></stop-card>
-    <stop-card id="myCard" name="FXB" stopID="91"></stop-card>
+    <div id="stop-div">
+      <stop-card id="card1" name="Pierpont" stopID="98"></stop-card>
+      <stop-card id="card2" name="FXB" stopID="91"></stop-card>
+    </div>
 
     <!--Scripts-->
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
