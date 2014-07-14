@@ -51,6 +51,9 @@
       }
     </style>
 
+    <!--ajax calls here-->
+    <core-ajax url="http://www.corsproxy.com/mbus.doublemap.com/map/v2/routes" auto handleAs="json" response="{{routes}}"></core-ajax>
+
     <core-ajax url="http://www.corsproxy.com/mbus.doublemap.com/map/v2/eta?stop={{stopID}}" auto handleAs="json" response="{{resp}}"></core-ajax>
 
     <div class="card">
@@ -58,7 +61,40 @@
       <button class="stop_btn" on-click="{{toggle}}">{{name}}</button>
       <core-collapse opened="true" id="{{name}}">
 
-        <!--Need to handle naming from route numbers-->
+        
+      <template repeat="{{r in routes}}">
+        <template repeat="{{s in r.stops}}">
+          <template bind if="{{s == stopID}}">
+            <h3 class="route-name">{{r.name}}</h3>
+            <ul class="time-list" id="CS">
+              <template repeat="{{route in resp.etas[stopID].etas}}">
+                <template bind if="{{route.avg < 60 && route.route == r.id}}">
+                  <li>{{route.avg}} minutes</li>
+                </template>
+              </template>
+            </ul>
+          </template>
+        </template>
+      </template>
+    </div>
+
+
+<!--
+        
+        <template repeat="{{r in routes}}">
+          <template bind if="{{!stopID}}">
+            <h3 class="route-name">{{r.name}}</h3>
+            <ul class="time-list" id="CS">
+              <template repeat="{{route in resp.etas[stopID].etas}}">
+                <template bind if="{{route.avg < 60 && route.route == r.id}}">
+                  <li>{{route.avg}} minutes</li>
+                </template>
+              </template>
+            </ul>
+          </template>
+        </template>
+
+        
         <h3 class="route-name">Commuter South</h3>
         <ul class="time-list" id="CS">
           <template repeat="{{route in resp.etas[stopID].etas}}">
@@ -68,11 +104,13 @@
           </template>
         </ul>
 
-        <!--repeat above templates for here as well-->
+
+        
         <h3 class="route-name">Northwood</h3>
         <ul class="time-list" id="NW"></ul>
       </core-collapse>
-    </div>  
+    </div> 
+--> 
 
   </template>
 
@@ -86,5 +124,6 @@
         this.$[this.name].toggle();
       }
     });
+
   </script>
 </polymer-element>
