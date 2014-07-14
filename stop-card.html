@@ -56,6 +56,7 @@
 
     <core-ajax url="http://www.corsproxy.com/mbus.doublemap.com/map/v2/eta?stop={{stopID}}" auto handleAs="json" response="{{resp}}"></core-ajax>
 
+    <!-- Card Content -->
     <div class="card">
       <paper-shadow z="1"></paper-shadow>
       <button class="stop_btn" on-click="{{toggle}}">{{name}}</button>
@@ -77,40 +78,6 @@
         </template>
       </template>
     </div>
-
-
-<!--
-        
-        <template repeat="{{r in routes}}">
-          <template bind if="{{!stopID}}">
-            <h3 class="route-name">{{r.name}}</h3>
-            <ul class="time-list" id="CS">
-              <template repeat="{{route in resp.etas[stopID].etas}}">
-                <template bind if="{{route.avg < 60 && route.route == r.id}}">
-                  <li>{{route.avg}} minutes</li>
-                </template>
-              </template>
-            </ul>
-          </template>
-        </template>
-
-        
-        <h3 class="route-name">Commuter South</h3>
-        <ul class="time-list" id="CS">
-          <template repeat="{{route in resp.etas[stopID].etas}}">
-            <template bind if="{{route.avg < 60}}">
-              <li>{{route.avg}} minutes</li>
-            </template>
-          </template>
-        </ul>
-
-
-        
-        <h3 class="route-name">Northwood</h3>
-        <ul class="time-list" id="NW"></ul>
-      </core-collapse>
-    </div> 
---> 
 
   </template>
 

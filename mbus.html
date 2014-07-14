@@ -6,48 +6,21 @@
     <script src="components_full/bower_components/platform/platform.js"></script>
     <link rel="stylesheet" type="text/css" href="busStyle.css">
     
-<!--    <link rel="import" href="components_full/bower_components/core-collapse/core-collapse.html">
-    <link rel="import" href="components_full/bower_components/paper-shadow/paper-shadow.html">
-  -->
     <link rel="import" href="stop-card.html">
 
   </head>
 
   <body>
+    <!-- Banner for Header -->
     <div id="header">
       <h1>MBus</h1>
     </div>
 
     <button id="refresh">Refresh</button>
 
+    <!-- Cards for Stops -->
     <stop-card id="myCard" name="Pierpont" stopID="98"></stop-card>
-
     <stop-card id="myCard" name="FXB" stopID="91"></stop-card>
-
-<!--
-    <div class="card">
-      <paper-shadow z="1"></paper-shadow>
-      <button class="stop_btn" onclick="document.querySelector('#pnt').toggle()">Pierpont</button>
-      <core-collapse opened="true" id="pnt">
-        <h3 class="route-name">Commuter South</h3>
-        <ul class="time-list" id="CS"></ul>
-        <h3 class="route-name">Northwood</h3>
-        <ul class="time-list" id="NW"></ul>
-      </core-collapse>
-    </div>  
-
-
-    <div class="card">
-      <paper-shadow z="1"></paper-shadow>
-      <button class="stop_btn" onclick="document.querySelector('#hideit').toggle()">FXB</button>
-      <core-collapse id="hideit">
-        <h3 class="route-name">Commuter North</h3>
-        <ul class="time-list" id="CN"></ul>
-        <h3 class="route-name">North-East Shuttle</h3>
-        <ul class="time-list" id="NE"></ul>
-      </core-collapse>
-    </div>  
--->
 
     <!--Scripts-->
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
