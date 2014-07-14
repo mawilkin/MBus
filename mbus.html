@@ -8,31 +8,36 @@
     <script src="components_full/bower_components/platform/platform.js"></script>
 
     <link rel="stylesheet" type="text/css" href="busStyle.css">
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+
     <link rel="import" href="stop-card.html">
     <link rel="import" href="components_full/bower_components/paper-fab/paper-fab.html">
     <link rel="import" href="components_full/bower_components/core-icons/iconsets/icons.html">
 
+    <link rel="import" href="components_full/bower_components/core-header-panel/core-header-panel.html">
+
   </head>
 
   <body>
-    <!-- Banner for Header -->
-    <div id="header">
-      <h1>MBus</h1>
-    </div>
+    <core-header-panel>
+      <div class="core-header"><h1 id="title">MBus</h1></div>
+      <div class="content">
+        <paper-fab id="refresh" icon="refresh"></paper-fab>
 
-    <paper-fab id="refresh" icon="refresh"></paper-fab>
+        <!-- Cards for Stops -->
+        <div id="stop-div">
+          <stop-card id="card1" name="Pierpont" stopID="98"></stop-card>
+          <stop-card id="card2" name="FXB" stopID="91"></stop-card>
+        </div>
 
-    <!--<button id="refresh">Refresh</button>-->
+        <!--Scripts-->
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="busData.js"></script>
 
-    <!-- Cards for Stops -->
-    <div id="stop-div">
-      <stop-card id="card1" name="Pierpont" stopID="98"></stop-card>
-      <stop-card id="card2" name="FXB" stopID="91"></stop-card>
-    </div>
+      </div>
+    </core-header-panel>
 
-    <!--Scripts-->
-    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="busData.js"></script>
+    
 
   </body>
 </html>
