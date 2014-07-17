@@ -4,7 +4,18 @@ $("#refresh").click(function(){
   var temp = $('#stop-div').html();
   $('#stop-div').html("")
   $('#stop-div').html(temp)
+
+  /*$('#stop-div').html("");
+  getLocation();
+  $('#more_btn').show();
+  */
 });
+
+$('#locate').click(function(){
+  $('#stop-div').html("");
+  getLocation();
+  $('#more_btn').show();
+})
 
 //Unhide extra stops
 $('#more_btn').click(function(){
@@ -36,7 +47,7 @@ function findClosest(position) {
 
       var obj = data;
       for(i in obj){
-        var dist = (obj[i].lat - position.coords.latitude) + (obj[i].lon - position.coords.longitude);
+        var dist = Math.sqrt(Math.pow((obj[i].lat - position.coords.latitude),2) + Math.pow((obj[i].lon - position.coords.longitude),2));
         if(obj[i].active == true){
           stops.push({'name': obj[i].name, 'id': obj[i].id, 'dist': Math.abs(dist)});
         }
