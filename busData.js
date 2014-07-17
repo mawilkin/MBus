@@ -4,13 +4,9 @@ $("#refresh").click(function(){
   var temp = $('#stop-div').html();
   $('#stop-div').html("")
   $('#stop-div').html(temp)
-
-  /*$('#stop-div').html("");
-  getLocation();
-  $('#more_btn').show();
-  */
 });
 
+//Re-locate Button
 $('#locate').click(function(){
   $('#stop-div').html("");
   getLocation();
@@ -19,8 +15,8 @@ $('#locate').click(function(){
 
 //Unhide extra stops
 $('#more_btn').click(function(){
-   $('stop-card').removeProp('hidden');
-    $('#more_btn').hide();
+  $('stop-card').removeProp('hidden');
+  $('#more_btn').hide();
 })
 
 //GeoLocation Functions
