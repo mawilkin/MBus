@@ -6,6 +6,11 @@ $("#refresh").click(function(){
   $('#stop-div').html(temp)
 });
 
+//Unhide extra stops
+$('#more_btn').click(function(){
+   $('stop-card').removeProp('hidden');
+    $('#more_btn').hide();
+})
 
 //GeoLocation Functions
 function getLocation() {
@@ -43,10 +48,18 @@ function findClosest(position) {
       })
 
       //Append Stops
-      for(var i=0; i < 5; ++i){
-        var temp = '<stop-card id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
-        $("#stop-div").append(temp);    
+      for(var i=0; i < 10; ++i){
+        if(i < 5){
+          var temp = '<stop-card id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
+          $("#stop-div").append(temp); 
+        } else {
+          var temp = '<stop-card hidden id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
+          $("#stop-div").append(temp); 
+        }   
       }
+
+      //Unhide more button
+       $('#more_btn').removeProp('hidden');
 
     });
 
