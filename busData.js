@@ -37,7 +37,6 @@ function findClosest(position) {
 
 
     //Get list of stops with names, id
-    //var url = 'http://www.corsproxy.com/mbus.doublemap.com/map/v2/stops';
     var url = 'http://141.213.90.22:8001/stops'
     $.get(url, function(data){
 

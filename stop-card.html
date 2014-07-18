@@ -52,13 +52,10 @@
     </style>
 
     <!--ajax calls here-->
-    <!--<core-ajax url="http://www.corsproxy.com/mbus.doublemap.com/map/v2/routes" auto handleAs="json" response="{{routes}}"></core-ajax>-->
+    <core-ajax url="http://141.213.90.22:8001/routes" auto handleAs="json" on-core-response="{{resp2}}"></core-ajax>
 
-    <!--<core-ajax url="http://www.corsproxy.com/mbus.doublemap.com/map/v2/eta?stop={{stopID}}" auto handleAs="json" response="{{resp}}"></core-ajax>-->
-
-    <core-ajax url="http://141.213.90.22:8001/routes" auto handleAs="json" response="{{routes}}"></core-ajax>   
-
-    <core-ajax url="http://141.213.90.22:8001/eta/stop={{stopID}}" auto handleAs="json" response="{{resp}}"></core-ajax>  
+    <core-ajax url="http://141.213.90.22:8001/eta/stop={{stopID}}" auto handleAs="json" on-core-response="{{resp}}"></core-ajax> 
+    
 
 
     <!-- Card Content -->
@@ -67,21 +64,18 @@
       <button class="stop_btn" on-click="{{toggle}}">{{name}}</button>
       <core-collapse opened="true" id="{{name}}">
 
-        
-      <template repeat="{{r in routes}}">
-        <template repeat="{{s in r.stops}}">
-          <template bind if="{{s == stopID}}">
+        <template repeat="{{r in routes}}">
             <h3 class="route-name">{{r.name}}</h3>
-            <ul class="time-list" id="CS">
-              <template repeat="{{route in resp.etas[stopID].etas}}">
-                <template bind if="{{route.avg < 60 && route.route == r.id}}">
-                  <li>{{route.avg}} minutes</li>
+            <ul class="time-list">
+              <template repeat="{{s in stops}}">
+                <template bind if="{{s.route == r.route}}">
+                  <li>{{s.time}} minutes</li>
                 </template>
               </template>
             </ul>
-          </template>
         </template>
-      </template>
+
+      </core-collapse>
     </div>
 
   </template>
@@ -92,10 +86,37 @@
       stopID: "91",
       name: "Pierpont",
       toggle: function() {        
-        //console.log(this.name);
         this.$[this.name].toggle();
+      },
+      resp2: function(event, res){
+        this.routes = [];
+        var routes = res.response;
+
+        for(r in routes){
+          for(s in routes[r].stops)
+          if(routes[r].stops[s] == this.stopID){
+            this.routes.push({name: routes[r].name, route: routes[r].id})
+          }
+        }
+      },
+      resp: function(event, res) {
+        console.log(res.response.etas[this.stopID].etas[0].route);
+
+        this.stops = [];
+
+        var stop = res.response.etas[this.stopID].etas;
+
+        for(s in stop){
+          var avg = stop[s].avg
+          if(avg < 61){
+            this.stops.push({time: avg, route: stop[s].route})
+          }
+        }
+        
       }
+
     });
+
 
   </script>
 </polymer-element>
