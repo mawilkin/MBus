@@ -9,14 +9,10 @@ h1 {
 	background-color: #00274c;
 	margin-left: 2%;
 	margin-top: 0.5%;
-	position: fixed;
-	z-index: 5;
+	/*position: fixed;
+	z-index: 5;*/
 }
 
-.content {
-	/*-webkit-overflow-scrolling: touch;*/
-	-webkit-transform: translateZ(0);
-}
 
 html, body {
   height: 100%;
