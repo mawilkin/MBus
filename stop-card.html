@@ -3,6 +3,7 @@
 
 <link rel="import" href="components_full/bower_components/core-collapse/core-collapse.html">
 <link rel="import" href="components_full/bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="components_full/bower_components/core-icons/iconsets/icons.html">
  
 <polymer-element name="stop-card" attributes="stopID name">
   <template>
@@ -27,16 +28,21 @@
         font-size: 1.4em;
       }
 
-      .route-name::before{
-        content: url('icon_97/icon_97_small.png');
-        margin-right: 4%;
-      }
-
-
       .time-list {
         margin: -4% 0 7% 3%;
         font-size: 1.1em;
         font-family: sans-serif;
+      }
+
+      core-icon {
+        float: left;
+        margin-right: 0.5em;
+        margin-top: 0.1em;
+        color: #00274c;
+      }
+
+      core-icon:first-of-type {
+        margin-top: 0.35em;
       }
 
       .card {
@@ -65,6 +71,7 @@
       <core-collapse opened="true" id="{{name}}">
 
         <template repeat="{{r in routes}}">
+          <core-icon size="25px" icon="directions-bus"></core-icon>
             <h3 class="route-name">{{r.name}}</h3>
             <ul class="time-list">
               <template repeat="{{s in stops}}">
