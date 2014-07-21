@@ -53,7 +53,7 @@
         position: relative;
         margin: 20px auto;
         border-radius: 2px;
-        padding: 0px 20px;
+        padding: 5px 20px;
       }
     </style>
 
@@ -67,9 +67,9 @@
     <!-- Card Content -->
     <div class="card">
       <paper-shadow z="1"></paper-shadow>
+
       <button class="stop_btn" on-click="{{toggle}}">{{name}}</button>
       <core-collapse opened="true" id="{{name}}">
-
         <template repeat="{{r in routes}}">
           <core-icon size="25px" icon="directions-bus"></core-icon>
             <h3 class="route-name">{{r.name}}</h3>
@@ -81,7 +81,6 @@
               </template>
             </ul>
         </template>
-
       </core-collapse>
     </div>
 

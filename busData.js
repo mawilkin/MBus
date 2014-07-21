@@ -17,6 +17,16 @@ $('#locate').click(function(){
 $('#more_btn').click(function(){
   $('stop-card').removeProp('hidden');
   $('#more_btn').hide();
+
+  //Test Code for stamping out templated code
+  //var content = document.querySelector('template').content;
+  //console.log(content);
+  //$('#crap-div').html(content)
+
+  var stops = document.querySelector('template').content;
+  console.log(stops)
+  $('#stop-div').append(stops);
+
 })
 
 //GeoLocation Functions
@@ -58,9 +68,20 @@ function findClosest(position) {
         if(i < 3){
           var temp = '<stop-card id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
           $("#stop-div").append(temp); 
-        } else {
+        } 
+        else if(i == 3){
+          $('#stop-div').append('<template id="hidden-cards">');
           var temp = '<stop-card hidden id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
-          $("#stop-div").append(temp); 
+          $("#hidden-cards").append(temp);
+        }
+        else if(i == 9){
+          var temp = '<stop-card hidden id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
+          $("#hidden-cards").append(temp);
+          $('#stop-div').append('</template>');
+        }
+        else {
+          var temp = '<stop-card hidden id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
+          $("#hidden-cards").append(temp); 
         }   
       }
 
