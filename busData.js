@@ -55,7 +55,7 @@ function findClosest(position) {
 
       //Append Stops
       for(var i=0; i < 10; ++i){
-        if(i < 5){
+        if(i < 3){
           var temp = '<stop-card id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
           $("#stop-div").append(temp); 
         } else {
