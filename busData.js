@@ -18,7 +18,7 @@ $('#more_btn').click(function(){
   $('#more_btn').hide();
 
   //Test Code for stamping out templated code
-  var stops = document.querySelector('template').content;
+  var stops = document.getElementById('hidden-cards').innerHTML;
   console.log(stops)
   $('#stop-div').append(stops);
 
