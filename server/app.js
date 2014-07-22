@@ -1,6 +1,5 @@
 var request = require('request');
 var express = require('express');
-var fs = require('fs');
 
 var app = express();
 
@@ -70,9 +69,14 @@ app.get('/stops', function(req, res){
 app.get('/eta/stop=:id', function(req, res){
 	var id = req.params.id;
 
-	var url = 'http://www.corsproxy.com/mbus.doublemap.com/map/v2/eta?stop='+id;
+	var url = 'http://mbus.doublemap.com/map/v2/eta?stop='+id;
 
-	req.pipe(request(url)).pipe(res)
+	request(url, function(err, resp, body){
+		res.header('Access-Control-Allow-Origin', '*');
+		res.send(body);
+	})
+
+	//req.pipe(request(url)).pipe(res)
 })
 
 
