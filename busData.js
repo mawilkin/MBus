@@ -15,14 +15,9 @@ $('#locate').click(function(){
 
 //Unhide extra stops
 $('#more_btn').click(function(){
-  $('stop-card').removeProp('hidden');
   $('#more_btn').hide();
 
   //Test Code for stamping out templated code
-  //var content = document.querySelector('template').content;
-  //console.log(content);
-  //$('#crap-div').html(content)
-
   var stops = document.querySelector('template').content;
   console.log(stops)
   $('#stop-div').append(stops);
@@ -71,17 +66,17 @@ function findClosest(position) {
         } 
         else if(i == 3){
           $('#stop-div').append('<template id="hidden-cards">');
-          var temp = '<stop-card hidden id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
-          $("#hidden-cards").append(temp);
+          var temp = '<stop-card id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
+          document.getElementById('hidden-cards').innerHTML += temp;
         }
         else if(i == 9){
-          var temp = '<stop-card hidden id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
-          $("#hidden-cards").append(temp);
+          var temp = '<stop-card id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
+          document.getElementById('hidden-cards').innerHTML += temp;
           $('#stop-div').append('</template>');
         }
         else {
-          var temp = '<stop-card hidden id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
-          $("#hidden-cards").append(temp); 
+          var temp = '<stop-card id="card'+i+'" stopID="'+stops[i].id + '" name="'+stops[i].name+'"></stop-card>';
+          document.getElementById('hidden-cards').innerHTML += temp;
         }   
       }
 
