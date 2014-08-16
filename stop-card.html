@@ -58,10 +58,14 @@
     </style>
 
     <!--ajax calls here-->
-    <core-ajax url="http://141.213.90.22:8001/routes" auto handleAs="json" on-core-response="{{resp2}}"></core-ajax>
+    <!--<core-ajax url="http://141.213.90.22:8001/routes" auto handleAs="json" on-core-response="{{resp2}}"></core-ajax>
 
     <core-ajax url="http://141.213.90.22:8001/eta/stop={{stopID}}" auto handleAs="json" on-core-response="{{resp}}"></core-ajax> 
+    -->
     
+    <core-ajax url="http://54.164.44.218:8001/routes" auto handleAs="json" on-core-response="{{resp2}}"></core-ajax>
+
+    <core-ajax url="http://54.164.44.218:8001/eta/stop={{stopID}}" auto handleAs="json" on-core-response="{{resp}}"></core-ajax>
 
 
     <!-- Card Content -->
